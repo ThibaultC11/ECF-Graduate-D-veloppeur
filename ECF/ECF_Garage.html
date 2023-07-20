@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Garage V. Parrot</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Style.css">
+    <link rel="php" href="login.php">
+    <link rel="php" href="config.php">
+</head>
+<body>
+    <div class="background-image">
+        <div class="main-content">
+            <header class="bg-dark text-light text-center py-4">
+                <img src="Parrot.png" alt="Logo de mon entreprise">
+            </header>
+
+            <!-- Connexion entreprise -->
+            <form method="post" action="login.php">
+                <label for="username">Nom d'utilisateur :</label>
+                <input type="text" id="username" name="username" required><br>
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" name="password" required><br>
+                <input type="submit" name="submit" value="Se connecter">
+            </form>
+            <!-- ------------------------ -->
+
+            <main class="container my-4">
+                <section>
+                    <p> GarageV.parrot nous proposons une large gamme de services concernant les véhicules Personnels 
+                        comme la réparation de carrosserie et mécanique ainsi que leur entretien régulier pour garantir leur performance et 
+                        leur sécurité de plus, Nous vous proposons des véhicules d'occasion.
+                    </p>
+                </section>
+
+                <!-- Bouton anime -->  
+                <div class="button-container">
+                    <a href="ECF_Garage_Vente.html">
+                        <button class="animated-button">
+                            NOS VEHICULES D'OCCASION
+                        </button>
+                    </a>
+                </div> 
+                <!-- ------------------ -->
+
+                <!-- Les horaires d'ouverture  -->
+                <section>
+                    <p>Nos horaires</p>
+                    <div class="flex-container">
+                        <div class="flex-item">Lundi:8h45-12h00:14h00-18h00</div>
+                        <div class="flex-item">Mardi:8h45-12h00:14h00-18h00</div>
+                        <div class="flex-item">Mercredi:8h45-12h00:14h00-18h00</div>
+                        <div class="flex-item">Jeudi:8h45-12h00:14h00-18h00</div>
+                        <div class="flex-item">Vendredi:8h45-12h00:14h00-18h00</div>
+                        <div class="flex-item">Samedi:8h45-12h00</div>
+                        <div class="flex-item">Dimanche:Fermé</div>
+                    </div>
+                    <!-- ------------------------------------------------------ -->
+                </section>
+            </main>
+
+            <footer class="bg-dark text-light text-center py-2">
+                <!-- Informations de contact pour joindre l'atelier  -->
+                <p>Contactez-nous :</p>
+                <p>Téléphone : 01 23 45 67 89</p>
+                <p>Email : contact@garagevparrot.com</p>        
+            </footer>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

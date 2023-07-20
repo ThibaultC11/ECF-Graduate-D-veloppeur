@@ -1,0 +1,288 @@
+head{
+    margin-left: 500;
+}
+
+.background-image {
+    /* Chemin vers votre image */
+    background-image: url('');
+
+    /* Réglez la taille du fond */
+    background-size: cover; /* Couvre toute la zone avec l'image */
+    /* background-size: contain; */ /* Affiche l'image entièrement, en conservant les proportions */
+    
+    background-position: center center;
+}
+
+
+/* LOGO PAGE 2 */
+
+body, h1, h2, h3, p {
+    margin: 0;
+}
+
+.site-header {
+    background-color: #f2f2f2; /* Remplacez par la couleur de fond souhaitée */
+    text-align: center;
+    padding: 20px;
+}
+
+.logo-button {
+    width: 100%; /* Le logo prendra toute la largeur du header */
+    max-width: 200px; /* Vous pouvez ajuster cette valeur selon vos besoins */
+    height: auto; /* Pour conserver les proportions de l'image */
+    transition: filter 0.3s ease; /* Animation pour la mise en surbrillance */
+}
+
+.logo-button:hover {
+    filter: brightness(125%); /* Effet de surbrillance au survol */
+}
+
+/* -----!!!!!!!!!------ */
+
+
+form {
+padding: 20;
+
+}
+
+/* Ajouter des styles pour rendre la page plus attrayante */
+header {
+    background-color: #f1f1f1;
+    padding: 10px;
+    margin-left: 500;
+}
+
+main {
+    padding: 20px;
+}
+
+/* Style pour les sections */
+section {
+    margin-bottom: 250px; 
+}
+
+
+
+
+footer {
+   
+    left: 0;
+    width: 100%;
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-align: left;
+}
+
+form {
+    margin-right: 30;
+    text-align: right;
+    margin-right: 200px; 
+}
+
+
+
+img {
+    width: 300px;
+    height: auto;
+}
+
+p{
+    margin-left: 20;
+    font-size: 28px;
+}
+
+table {
+    text-decoration: none; text-align: center;
+    font-size: 20px;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.flex-item {
+    flex: 0 0 calc(33.33% - 20px);
+    background-color: #ccc;
+    padding: 20px;
+}
+
+.btn-with-image {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+
+
+/* ------------------*************--------------- */
+                /* Bouton image anime */
+/* ------------------*************--------------- */
+/* Styles pour le conteneur du bouton */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    padding: 20;
+}
+
+/* Styles pour le bouton animé */
+.animated-button {
+    padding: 20px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Styles pour l'animation */
+.animated-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: -1;
+    transition: width 0.3s ease-in-out;
+}
+
+.animated-button:hover::before {
+    width: 100%;
+}
+/* ---------------******************---------------- */
+/* ---------------******************---------------- */
+
+
+/* Style pour l'image du bouton */
+.animated-button img {
+    width: 200px; /* Ajustez la taille de l'image selon vos préférences */
+    height: 200px; /* Ajustez la taille de l'image selon vos préférences */
+    transition: transform 0.3s ease-in-out; /* Ajoute une transition au survol de la souris */
+}
+
+/* Animation au survol de la souris */
+.animated-button:hover img {
+    transform: scale(1.1); /* Applique une légère échelle à l'image */
+}
+/* ------------------------------------------------------- */
+
+/* Animation au survol */
+.btn-animated:hover {
+    margin-top: 50;
+    transform: scale(1.2);
+}
+
+
+
+/* Styles pour le bouton de tri */
+.btn-filter {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    margin-top: 50; 
+    right: 150px;
+}
+
+
+
+/* Styles pour les véhicules */
+.vehicle-item {
+    margin-bottom: 10px;
+}
+
+
+        /* Styles pour la boîte de dialogue */
+        .dialog-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dialog-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Le style pour la liste de véhicules en vedette */
+.vehicle-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.vehicle-item {
+    max-width: 300px;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.vehicle-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.vehicle-item h3 {
+    font-size: 18px;
+}
+
+.vehicle-item p {
+    font-size: 14px;
+}
+
+
+     /* ----------Banderole---------- */
+
+     /* Style pour les banderoles verticales */
+body {
+    position: relative;
+    overflow-x: hidden; /* Empêche l'affichage horizontal de défilement dû aux banderoles */
+}
+
+body::before, body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px; /* largeur des banderoles */
+    background-color: #B9B7BD; /* couleur des banderoles  */
+}
+
+body::before {
+    left: 0; /* Bande verticale à gauche */
+}
+
+body::after {
+    right: 0; /* Bande verticale à droite */
+}
+

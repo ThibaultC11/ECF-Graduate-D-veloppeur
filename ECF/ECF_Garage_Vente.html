@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="Style.css">
+    <title>Garage V. Parrot</title>
+    <style>
+        /* Ajoutez cette règle CSS pour centrer la liste des véhicules */
+        #vehicle-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Ajoutez cette règle CSS pour aligner les labels du filtre de prix */
+        .price-filter label {
+            text-align: left;
+        }        
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <a href="ECF_Garage.html">
+            <img src="Parrot.png" alt="Logo" class="logo-button">
+        </a>
+    </header>
+
+    <!-- Bouton pour ouvrir la boîte de dialogue -->
+    <button class="btn-filter" onclick="openDialog()">Filtrer les véhicules</button>
+
+    <!-- Boîte de dialogue -->
+    <div class="dialog-overlay" id="dialog">
+        <div class="dialog-content">
+            <div class="price-filter">
+                <label for="prixMin">Prix minimum :</label>
+                <input type="range" id="prixMin" min="0" max="50000">
+                <span id="prixMinValue">0 €</span>
+            </div>
+
+            <div class="price-filter">
+                <label for="prixMax">Prix maximum :</label>
+                <input type="range" id="prixMax" min="0" max="50000">
+                <span id="prixMaxValue">50 000 €</span>
+            </div>
+
+            <table>
+                <tr>
+                    <td>
+                        <label><input type="checkbox" value="Renault">Renault</label>
+                    </td>
+                    <td>
+                        <label><input type="checkbox" value="Dacia">Dacia</label>
+                    </td>
+                    <td>
+                        <label><input type="checkbox" value="Ford">Ford</label>
+                    </td>
+                    <td>
+                        <label><input type="checkbox" value="Peugeot">Peugeot</label>
+                    </td>
+                </tr>
+            </table>
+
+            <button onclick="applyFilter()">Appliquer</button>
+            <button onclick="closeDialog()">Fermer</button>
+        </div>
+    </div>
+
+    <!-- La liste des véhicules à vendre -->
+
+    <div id="vehicle-list">
+        <div class="vehicle-item" data-type="Renault" data-prix="11490">
+            <img src="clio.jpg" alt="Image">
+            <h3>Marque: Renault</h3>
+            <p>Modèle: Clio</p>
+            <p>Année: 2018</p>
+            <p>Kilométrage: 96 610 km</p>
+            <p>Prix: 11 490 €</p>
+        </div>
+        <div class="vehicle-item" data-type="Dacia" data-prix="12990">
+            <img src="dacia.png" alt="Véhicule 2">
+            <h3>Marque: Dacia</h3>
+            <p>Modèle: Sandero</p>
+            <p>Année: 2018</p>
+            <p>Kilométrage: 66 137 km</p>
+            <p>Prix: 12 990€</p>
+        </div>
+        <div class="vehicle-item" data-type="Renault" data-prix="26990">
+            <img src="scenic.png" alt="Véhicule 3">
+            <h3>Marque: Renault</h3>
+            <p>Modèle: Scenic</p>
+            <p>Année: 2020</p>
+            <p>Kilométrage: 25 000 km</p>
+            <p>Prix: 26 990 €</p>
+        </div>
+        <div class="vehicle-item" data-type="Ford" data-prix="21480">
+            <img src="ford.png" alt="Véhicule 4">
+            <h3>Marque: Ford</h3>
+            <p>Modèle: Puma</p>
+            <p>Année: 2020</p>
+            <p>Kilométrage: 44 000 km</p>
+            <p>Prix: 21 480 €</p>
+        </div>
+        <div class="vehicle-item" data-type="Peugeot" data-prix="15025">
+            <img src="peugeot.png" alt="Véhicule 5">
+            <h3>Marque: Peugeot</h3>
+            <p>Modèle: 308</p>
+            <p>Année: 2016</p>
+            <p>Kilométrage: 20 000 km</p>
+            <p>Prix: 15 025 €</p>
+        </div>
+    </div>
+
+    <script>
+        // Fonction pour ouvrir la boîte de dialogue
+        function openDialog() {
+            document.getElementById('dialog').style.display = 'flex';
+        }
+
+        // Fonction pour fermer la boîte de dialogue
+        function closeDialog() {
+            document.getElementById('dialog').style.display = 'none';
+        }
+
+        // Fonction pour appliquer le filtre
+        function applyFilter() {
+            closeDialog();
+            filterVehicles();
+        }
+
+        // Fonction de filtrage des véhicules
+        function filterVehicles() {
+            const dialog = document.getElementById('dialog');
+            const checkboxes = dialog.querySelectorAll('input[type="checkbox"]');
+            const prixMin = parseFloat(document.getElementById('prixMin').value);
+            const prixMax = parseFloat(document.getElementById('prixMax').value);
+            const prixMinValueElement = document.getElementById('prixMinValue');
+            const prixMaxValueElement = document.getElementById('prixMaxValue');
+
+            // Mise à jour des valeurs affichées à côté des curseurs glissants
+            prixMinValueElement.textContent = prixMin + ' €';
+            prixMaxValueElement.textContent = prixMax + ' €';
+
+            const vehicles = document.querySelectorAll('.vehicle-item');
+
+            vehicles.forEach(vehicle => {
+                const type = vehicle.dataset.type;
+                const prix = parseFloat(vehicle.dataset.prix);
+
+                // Vérifie si le type de véhicule est coché
+                const isChecked = Array.from(checkboxes).some(checkbox => checkbox.checked && checkbox.value === type);
+
+                // Vérifie si le prix est compris dans la plage spécifiée, ou si aucune case n'est cochée
+                const isPrixInRange = (isNaN(prixMin) || prix >= prixMin) && (isNaN(prixMax) || prix <= prixMax);
+
+                if ((isChecked || (!checkboxes.length)) && isPrixInRange) {
+                    vehicle.style.display = 'block';
+                } else {
+                    vehicle.style.display = 'none';
+                }
+            });
+        }
+
+        // Événement d'écoute pour mettre à jour les valeurs affichées avec les curseurs glissants
+        const prixMinElement = document.getElementById('prixMin');
+        const prixMaxElement = document.getElementById('prixMax');
+        const prixMinValueElement = document.getElementById('prixMinValue');
+        const prixMaxValueElement = document.getElementById('prixMaxValue');
+
+        prixMinElement.addEventListener('input', () => {
+            const prixMin = parseFloat(prixMinElement.value);
+            prixMinValueElement.textContent = prixMin + ' €';
+        });
+
+        prixMaxElement.addEventListener('input', () => {
+            const prixMax = parseFloat(prixMaxElement.value);
+            prixMaxValueElement.textContent = prixMax + ' €';
+        });
+    </script>
+</body>
+</html>
